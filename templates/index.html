@@ -1,1 +1,1177 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#20382D">
+
+    <meta name="description"
+          content="FlavorBook Amber and Thyme Recipe Organizer">
+
+    <title>FlavorBook | Amber & Thyme</title>
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=DM+Sans:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- MAIN STYLESHEET -->
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body data-theme="dark">
+
+<!-- =============================================
+     REUSABLE INLINE SVG ILLUSTRATIONS
+============================================== -->
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     class="svg-library"
+     aria-hidden="true">
+
+    <defs>
+
+        <linearGradient id="plateGradient"
+                        x1="0" y1="0"
+                        x2="1" y2="1">
+
+            <stop offset="0%" stop-color="#fff4d8"/>
+            <stop offset="100%" stop-color="#bca77c"/>
+
+        </linearGradient>
+
+        <linearGradient id="goldGradient"
+                        x1="0" y1="0"
+                        x2="1" y2="1">
+
+            <stop offset="0%" stop-color="#f4d99d"/>
+            <stop offset="100%" stop-color="#9d743b"/>
+
+        </linearGradient>
+
+    </defs>
+
+    <!-- BOTANICAL THYME BRANCH -->
+
+    <symbol id="thymeBranch" viewBox="0 0 200 240">
+
+        <g fill="none"
+           stroke="currentColor"
+           stroke-width="2"
+           stroke-linecap="round">
+
+            <path d="M35 225 Q95 150 155 20"/>
+
+            <ellipse cx="62" cy="185" rx="10" ry="28"
+                     transform="rotate(-48 62 185)"/>
+
+            <ellipse cx="92" cy="180" rx="10" ry="27"
+                     transform="rotate(55 92 180)"/>
+
+            <ellipse cx="86" cy="145" rx="9" ry="25"
+                     transform="rotate(-45 86 145)"/>
+
+            <ellipse cx="116" cy="137" rx="9" ry="25"
+                     transform="rotate(55 116 137)"/>
+
+            <ellipse cx="108" cy="105" rx="8" ry="24"
+                     transform="rotate(-45 108 105)"/>
+
+            <ellipse cx="140" cy="95" rx="8" ry="23"
+                     transform="rotate(55 140 95)"/>
+
+            <ellipse cx="132" cy="63" rx="7" ry="20"
+                     transform="rotate(-40 132 63)"/>
+
+            <ellipse cx="157" cy="52" rx="7" ry="20"
+                     transform="rotate(48 157 52)"/>
+
+        </g>
+
+    </symbol>
+
+    <!-- RESTAURANT PLATE -->
+
+    <symbol id="culinaryPlate" viewBox="0 0 420 420">
+
+        <ellipse cx="210" cy="375"
+                 rx="150" ry="20"
+                 fill="#000" opacity=".16"/>
+
+        <circle cx="210" cy="205" r="165"
+                fill="url(#plateGradient)"
+                stroke="#c49b58"
+                stroke-width="3"/>
+
+        <circle cx="210" cy="205" r="145"
+                fill="#e6d7b7"
+                stroke="#9e895f"/>
+
+        <circle cx="210" cy="205" r="125"
+                fill="#f5e9cf"
+                stroke="#c7b28a"/>
+
+        <!-- FOOD ILLUSTRATION -->
+
+        <g stroke="#765032" stroke-width="2">
+
+            <rect x="135" y="130" width="75" height="48"
+                  rx="16" fill="#b87a48"
+                  transform="rotate(-20 170 150)"/>
+
+            <rect x="210" y="140" width="80" height="48"
+                  rx="16" fill="#925737"
+                  transform="rotate(25 250 160)"/>
+
+            <rect x="155" y="205" width="85" height="55"
+                  rx="18" fill="#a96b40"
+                  transform="rotate(18 195 230)"/>
+
+            <rect x="230" y="210" width="65" height="50"
+                  rx="14" fill="#c18c53"
+                  transform="rotate(-30 260 235)"/>
+
+            <rect x="125" y="180" width="55" height="45"
+                  rx="14" fill="#9e623b"/>
+
+        </g>
+
+        <!-- HERBS -->
+
+        <g fill="#617d4d">
+
+            <ellipse cx="180" cy="155" rx="9" ry="25"
+                     transform="rotate(-45 180 155)"/>
+
+            <ellipse cx="235" cy="185" rx="8" ry="24"
+                     transform="rotate(50 235 185)"/>
+
+            <ellipse cx="195" cy="250" rx="8" ry="23"
+                     transform="rotate(-40 195 250)"/>
+
+            <ellipse cx="260" cy="245" rx="8" ry="22"
+                     transform="rotate(45 260 245)"/>
+
+        </g>
+
+        <!-- GARNISH -->
+
+        <g fill="#ae5840">
+
+            <circle cx="150" cy="260" r="10"/>
+            <circle cx="280" cy="185" r="9"/>
+            <circle cx="220" cy="120" r="8"/>
+
+        </g>
+
+        <g fill="none"
+           stroke="#78866b"
+           stroke-width="3">
+
+            <path d="M275 300 Q310 255 330 220"/>
+
+            <path d="M290 280 Q265 255 280 250
+                     Q300 252 290 280"/>
+
+            <path d="M310 255 Q335 230 342 245
+                     Q340 260 310 255"/>
+
+        </g>
+
+    </symbol>
+
+    <!-- CHEF HAT -->
+
+    <symbol id="chefHat" viewBox="0 0 100 100">
+
+        <g fill="none"
+           stroke="currentColor"
+           stroke-width="3"
+           stroke-linejoin="round">
+
+            <path d="M25 65
+                     C5 55 12 25 32 27
+                     C32 5 68 5 68 27
+                     C90 25 95 55 75 65
+                     L75 85 L25 85 Z"/>
+
+            <path d="M25 72 H75"/>
+            <path d="M40 45 L43 65"/>
+            <path d="M60 45 L57 65"/>
+
+        </g>
+
+    </symbol>
+
+    <!-- COOKING POT -->
+
+    <symbol id="cookingPot" viewBox="0 0 120 100">
+
+        <g fill="none"
+           stroke="currentColor"
+           stroke-width="3"
+           stroke-linecap="round">
+
+            <path d="M25 40 H95 L90 85 H30 Z"/>
+            <path d="M20 40 H100"/>
+            <path d="M45 32 Q60 20 75 32"/>
+            <path d="M25 50 H10 V65 H27"/>
+            <path d="M95 50 H110 V65 H93"/>
+
+        </g>
+
+    </symbol>
+
+    <!-- EMPTY PLATE -->
+
+    <symbol id="emptyPlate" viewBox="0 0 160 140">
+
+        <g fill="none"
+           stroke="currentColor"
+           stroke-width="2">
+
+            <circle cx="80" cy="70" r="48"/>
+            <circle cx="80" cy="70" r="37"/>
+            <circle cx="80" cy="70" r="29"/>
+
+            <path d="M12 25 V60 Q12 68 20 68 V115"/>
+            <path d="M20 25 V60"/>
+            <path d="M28 25 V60 Q28 68 20 68"/>
+
+            <path d="M140 25 Q125 55 140 70 V115"/>
+
+        </g>
+
+    </symbol>
+
+</svg>
+
+
+<!-- =============================================
+     AMBIENT BACKGROUND
+============================================== -->
+
+<div class="ambient-background">
+
+    <div class="ambient-glow glow-one"></div>
+    <div class="ambient-glow glow-two"></div>
+
+    <svg class="background-herb herb-left">
+        <use href="#thymeBranch"></use>
+    </svg>
+
+    <svg class="background-herb herb-right">
+        <use href="#thymeBranch"></use>
+    </svg>
+
+</div>
+
+
+<!-- =============================================
+     WEBSITE HEADER
+============================================== -->
+
+<header class="site-header">
+
+    <div class="header-container">
+
+        <button class="brand"
+                type="button"
+                data-page="dashboard">
+
+            <span class="brand-emblem">
+
+                <svg viewBox="0 0 200 240">
+                    <use href="#thymeBranch"></use>
+                </svg>
+
+            </span>
+
+            <span class="brand-text">
+
+                <span class="brand-name">
+                    FlavorBook<span>.</span>
+                </span>
+
+                <span class="brand-edition">
+                    AMBER & THYME
+                </span>
+
+            </span>
+
+        </button>
+
+        <div class="header-actions">
+
+            <div class="connection-status"
+                 id="connectionStatus">
+
+                <span class="connection-dot"></span>
+
+                <span id="connectionText">
+                    Connecting...
+                </span>
+
+            </div>
+
+            <button class="icon-button theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                    aria-label="Switch color theme">
+
+                <i class="fa-solid fa-sun"></i>
+
+            </button>
+
+            <button class="icon-button mobile-menu"
+                    id="mobileMenu"
+                    type="button"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- GOLD UNDERLINE NAVIGATION -->
+
+    <nav class="main-navigation"
+         id="mainNavigation"
+         aria-label="Main navigation">
+
+        <button class="nav-link active"
+                data-page="dashboard">
+
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+
+        </button>
+
+        <button class="nav-link"
+                data-page="recipes">
+
+            <i class="fa-solid fa-book-open"></i>
+            <span>Recipes</span>
+
+        </button>
+
+        <button class="nav-link"
+                data-page="categories">
+
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Categories</span>
+
+        </button>
+
+        <button class="nav-link"
+                data-page="ingredients">
+
+            <i class="fa-solid fa-leaf"></i>
+            <span>Ingredients</span>
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- =============================================
+     MAIN CONTENT
+============================================== -->
+
+<main class="main-container">
+
+    <!-- DASHBOARD PAGE -->
+
+    <section class="page active"
+             id="dashboardPage">
+
+        <div class="hero-banner">
+
+            <div class="hero-decoration"></div>
+
+            <div class="hero-content">
+
+                <div class="eyebrow hero-eyebrow">
+
+                    <span class="decorative-line"></span>
+
+                    YOUR PERSONAL CULINARY JOURNAL
+
+                </div>
+
+                <h1>
+
+                    Savor the art
+
+                    <em>of good food.</em>
+
+                </h1>
+
+                <p>
+
+                    A curated collection of cherished recipes,
+                    beautiful flavors, and timeless moments
+                    around the table.
+
+                </p>
+
+                <div class="hero-actions">
+
+                    <button class="btn btn-gold"
+                            data-page="recipes">
+
+                        Explore Collection
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                    <button class="btn btn-outline"
+                            data-add="recipes">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        New Recipe
+
+                    </button>
+
+                </div>
+
+                <div class="hero-signature">
+
+                    <i class="fa-solid fa-leaf"></i>
+
+                    Made with love. Served with warmth.
+
+                </div>
+
+            </div>
+
+            <div class="hero-art">
+
+                <div class="plate-glow"></div>
+
+                <svg class="hero-plate"
+                     viewBox="0 0 420 420">
+
+                    <use href="#culinaryPlate"></use>
+
+                </svg>
+
+                <svg class="floating-thyme thyme-one">
+                    <use href="#thymeBranch"></use>
+                </svg>
+
+                <svg class="floating-thyme thyme-two">
+                    <use href="#thymeBranch"></use>
+                </svg>
+
+                <span class="sparkle sparkle-one">✧</span>
+                <span class="sparkle sparkle-two">✦</span>
+                <span class="sparkle sparkle-three">✧</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="eyebrow">YOUR KITCHEN AT A GLANCE</span>
+
+                <h2>Culinary Overview</h2>
+
+            </div>
+
+            <button class="btn btn-outline btn-small"
+                    id="refreshDashboard">
+
+                <i class="fa-solid fa-rotate"></i>
+
+                Refresh
+
+            </button>
+
+        </div>
+
+        <div class="statistics-grid">
+
+            <button class="stat-card stat-recipes"
+                    data-page="recipes">
+
+                <div class="stat-top">
+
+                    <div class="stat-icon">
+
+                        <i class="fa-solid fa-book-open"></i>
+
+                    </div>
+
+                    <i class="fa-solid fa-arrow-up-right-from-square stat-arrow"></i>
+
+                </div>
+
+                <div class="stat-number"
+                     id="totalRecipes">—</div>
+
+                <h3>Saved Recipes</h3>
+
+                <p>Delicious creations in your collection</p>
+
+            </button>
+
+            <button class="stat-card stat-categories"
+                    data-page="categories">
+
+                <div class="stat-top">
+
+                    <div class="stat-icon">
+
+                        <i class="fa-solid fa-layer-group"></i>
+
+                    </div>
+
+                    <i class="fa-solid fa-arrow-up-right-from-square stat-arrow"></i>
+
+                </div>
+
+                <div class="stat-number"
+                     id="totalCategories">—</div>
+
+                <h3>Food Categories</h3>
+
+                <p>Beautifully organized flavors</p>
+
+            </button>
+
+            <button class="stat-card stat-ingredients"
+                    data-page="ingredients">
+
+                <div class="stat-top">
+
+                    <div class="stat-icon">
+
+                        <i class="fa-solid fa-leaf"></i>
+
+                    </div>
+
+                    <i class="fa-solid fa-arrow-up-right-from-square stat-arrow"></i>
+
+                </div>
+
+                <div class="stat-number"
+                     id="totalIngredients">—</div>
+
+                <h3>Ingredients</h3>
+
+                <p>The essentials behind every dish</p>
+
+            </button>
+
+        </div>
+
+
+        <!-- FEATURED RECIPES -->
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="eyebrow">FROM YOUR COLLECTION</span>
+
+                <h2>A Taste of FlavorBook</h2>
+
+                <p>Discover recipes from your culinary journal.</p>
+
+            </div>
+
+            <button class="btn btn-outline"
+                    data-page="recipes">
+
+                View All
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </div>
+
+        <div class="recipe-grid"
+             id="featuredRecipes"></div>
+
+        <div class="culinary-quote">
+
+            <svg>
+                <use href="#thymeBranch"></use>
+            </svg>
+
+            <div>
+
+                <span class="eyebrow">A LITTLE KITCHEN WISDOM</span>
+
+                <blockquote>
+
+                    “Good food is a celebration of life,
+                    love, and the moments we share.”
+
+                </blockquote>
+
+                <span>— FlavorBook, Amber & Thyme</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =============================================
+         RECIPES PAGE
+    ============================================== -->
+
+    <section class="page"
+             id="recipesPage">
+
+        <div class="page-banner">
+
+            <div>
+
+                <span class="eyebrow">THE CULINARY JOURNAL</span>
+
+                <h1>Recipe Collection</h1>
+
+                <p>
+
+                    Discover, organize, and preserve
+                    your favorite culinary creations.
+
+                </p>
+
+            </div>
+
+            <svg>
+                <use href="#chefHat"></use>
+            </svg>
+
+        </div>
+
+        <div class="workspace-panel">
+
+            <div class="section-heading compact">
+
+                <div>
+
+                    <span class="eyebrow">MANAGE YOUR RECIPES</span>
+
+                    <h2>Our Menu</h2>
+
+                    <p id="recipeCount">Loading recipes...</p>
+
+                </div>
+
+                <button class="btn btn-gold"
+                        data-add="recipes">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Recipe
+
+                </button>
+
+            </div>
+
+            <div class="toolbar">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="search"
+                           id="recipeSearch"
+                           placeholder="Search your favorite flavors..."
+                           aria-label="Search recipes">
+
+                </div>
+
+                <select class="filter-select"
+                        id="categoryFilter"
+                        aria-label="Filter by category">
+
+                    <option value="">All Categories</option>
+
+                </select>
+
+                <select class="filter-select"
+                        id="difficultyFilter"
+                        aria-label="Filter by difficulty">
+
+                    <option value="">All Difficulties</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+
+                </select>
+
+                <div class="view-switch">
+
+                    <button class="view-button active"
+                            data-view="cards"
+                            aria-label="Card view"
+                            title="Card view">
+
+                        <i class="fa-solid fa-grip"></i>
+
+                    </button>
+
+                    <button class="view-button"
+                            data-view="table"
+                            aria-label="Table view"
+                            title="Table view">
+
+                        <i class="fa-solid fa-list"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="category-tabs"
+                 id="categoryTabs"></div>
+
+            <div id="recipeRecords"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =============================================
+         CATEGORIES PAGE
+    ============================================== -->
+
+    <section class="page"
+             id="categoriesPage">
+
+        <div class="page-banner">
+
+            <div>
+
+                <span class="eyebrow">A PLACE FOR EVERY FLAVOR</span>
+
+                <h1>Food Categories</h1>
+
+                <p>
+
+                    Give every recipe a beautiful place
+                    in your culinary collection.
+
+                </p>
+
+            </div>
+
+            <svg>
+                <use href="#thymeBranch"></use>
+            </svg>
+
+        </div>
+
+        <div class="workspace-panel">
+
+            <div class="section-heading compact">
+
+                <div>
+
+                    <span class="eyebrow">ORGANIZE YOUR COLLECTION</span>
+
+                    <h2>Manage Categories</h2>
+
+                    <p id="categoryCount">Loading categories...</p>
+
+                </div>
+
+                <button class="btn btn-gold"
+                        data-add="categories">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Category
+
+                </button>
+
+            </div>
+
+            <div class="toolbar">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="search"
+                           id="categorySearch"
+                           placeholder="Find a food category..."
+                           aria-label="Search categories">
+
+                </div>
+
+            </div>
+
+            <div class="category-grid"
+                 id="categoryRecords"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =============================================
+         INGREDIENTS PAGE
+    ============================================== -->
+
+    <section class="page"
+             id="ingredientsPage">
+
+        <div class="page-banner">
+
+            <div>
+
+                <span class="eyebrow">THE ESSENCE OF EVERY DISH</span>
+
+                <h1>Ingredient Pantry</h1>
+
+                <p>
+
+                    Manage the fresh ingredients and
+                    essentials behind every recipe.
+
+                </p>
+
+            </div>
+
+            <svg>
+                <use href="#cookingPot"></use>
+            </svg>
+
+        </div>
+
+        <div class="workspace-panel">
+
+            <div class="section-heading compact">
+
+                <div>
+
+                    <span class="eyebrow">YOUR KITCHEN ESSENTIALS</span>
+
+                    <h2>Manage Ingredients</h2>
+
+                    <p id="ingredientCount">Loading ingredients...</p>
+
+                </div>
+
+                <button class="btn btn-gold"
+                        data-add="ingredients">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Ingredient
+
+                </button>
+
+            </div>
+
+            <div class="toolbar">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="search"
+                           id="ingredientSearch"
+                           placeholder="Search pantry ingredients..."
+                           aria-label="Search ingredients">
+
+                </div>
+
+                <select class="filter-select"
+                        id="recipeFilter"
+                        aria-label="Filter ingredients by recipe">
+
+                    <option value="">All Recipes</option>
+
+                </select>
+
+            </div>
+
+            <div id="ingredientRecords"></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =============================================
+     FOOTER
+============================================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-ornament">───── ❧ ─────</div>
+
+    <h2>FlavorBook.</h2>
+
+    <span class="eyebrow">AMBER & THYME EDITION</span>
+
+    <p>Good food. Beautiful flavors. Timeless memories.</p>
+
+    <div class="footer-bottom">
+
+        <span>Recipe Organizer System</span>
+
+        <span>
+
+            <i class="fa-solid fa-cloud"></i>
+
+            Powered by Firebase Firestore
+
+        </span>
+
+    </div>
+
+</footer>
+
+
+<!-- =============================================
+     ADD / EDIT MODAL
+============================================== -->
+
+<dialog class="modal"
+        id="recordModal">
+
+    <div class="modal-header">
+
+        <div>
+
+            <span class="eyebrow">YOUR CULINARY WORKSPACE</span>
+
+            <h2 id="modalTitle">Add Record</h2>
+
+        </div>
+
+        <button class="icon-button"
+                type="button"
+                data-close="recordModal"
+                aria-label="Close form">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+    <form id="recordForm">
+
+        <div class="form-grid"
+             id="formFields"></div>
+
+        <div class="form-error"
+             id="formError"
+             role="alert"
+             hidden></div>
+
+        <div class="modal-footer">
+
+            <button class="btn btn-outline"
+                    type="button"
+                    data-close="recordModal">
+
+                Cancel
+
+            </button>
+
+            <button class="btn btn-gold"
+                    id="saveButton"
+                    type="submit">
+
+                <i class="fa-solid fa-check"></i>
+
+                Save Record
+
+            </button>
+
+        </div>
+
+    </form>
+
+</dialog>
+
+
+<!-- =============================================
+     VIEW DETAILS MODAL
+============================================== -->
+
+<dialog class="modal detail-modal"
+        id="detailModal">
+
+    <div class="modal-header">
+
+        <div>
+
+            <span class="eyebrow">THE FLAVORBOOK COLLECTION</span>
+
+            <h2 id="detailTitle">Record Details</h2>
+
+        </div>
+
+        <button class="icon-button"
+                data-close="detailModal"
+                aria-label="Close details">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+    <div id="detailContent"></div>
+
+    <div class="modal-footer">
+
+        <button class="btn btn-gold"
+                data-close="detailModal">
+
+            Close Journal
+
+        </button>
+
+    </div>
+
+</dialog>
+
+
+<!-- =============================================
+     DELETE CONFIRMATION
+============================================== -->
+
+<dialog class="modal confirmation-modal"
+        id="confirmModal">
+
+    <div class="confirmation-icon">
+
+        <i class="fa-solid fa-trash-can"></i>
+
+    </div>
+
+    <span class="eyebrow">PLEASE CONFIRM</span>
+
+    <h2>Remove this record?</h2>
+
+    <p id="confirmMessage"></p>
+
+    <div class="form-error"
+         id="deleteError"
+         role="alert"
+         hidden></div>
+
+    <div class="confirmation-actions">
+
+        <button class="btn btn-outline"
+                data-close="confirmModal">
+
+            Keep Record
+
+        </button>
+
+        <button class="btn btn-danger"
+                id="confirmDelete">
+
+            <i class="fa-solid fa-trash"></i>
+
+            Yes, Delete
+
+        </button>
+
+    </div>
+
+</dialog>
+
+
+<!-- =============================================
+     LOADING ANIMATION
+============================================== -->
+
+<div class="loading-overlay"
+     id="loadingOverlay"
+     role="status"
+     aria-live="polite"
+     hidden>
+
+    <div class="loading-content">
+
+        <div class="pot-loader">
+
+            <span class="steam steam-one"></span>
+            <span class="steam steam-two"></span>
+            <span class="steam steam-three"></span>
+
+            <svg viewBox="0 0 120 100">
+                <use href="#cookingPot"></use>
+            </svg>
+
+        </div>
+
+        <h2>Preparing something lovely...</h2>
+
+        <p id="loadingText">Loading your collection</p>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST NOTIFICATIONS -->
+
+<div class="toast-container"
+     id="toastContainer"
+     aria-live="polite"></div>
+
+
+<!-- MAIN JAVASCRIPT -->
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+
+</html>
