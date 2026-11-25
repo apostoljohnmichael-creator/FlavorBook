@@ -1,24 +1,134 @@
-# FlavorBook Recipe Organizer
-Flask + HTML/CSS/JS + Firebase Cloud Firestore. Local single-user classroom demonstration; do not expose the unauthenticated Flask server publicly.
+# FlavorBook – Recipe Organizer System
 
-## Setup in PyCharm (Windows PowerShell)
-1. Open this folder in PyCharm and select a Python 3.10+ interpreter (3.11 recommended).
-2. Create a Firebase project and enable Cloud Firestore in production mode. Publish the included firestore.rules in the Rules tab. The server Admin SDK uses IAM and bypasses client rules.
-3. Project settings > Service accounts > Generate new private key. Save it as ServiceAccountKey.json in this folder. Never commit this file.
-4. In the terminal run:
+## Project Overview
+
+FlavorBook is a web-based Recipe Organizer System designed to help users organize and manage recipes, food categories, and ingredients in a centralized platform. It provides an interactive and responsive interface with Firebase Cloud Firestore as its database.
+
+## Live Website
+
+Access the FlavorBook website through the following link:
+
+[FlavorBook – Live Website](https://flavorbook-iota.vercel.app/)
+
+## Technologies Used
+
+- HTML5 – Website structure
+- CSS3 – Styling, animations, and responsive design
+- JavaScript – Interactive features and API integration
+- Python Flask – Backend development
+- Firebase Cloud Firestore – NoSQL cloud database
+- GitHub – Source code repository
+- Vercel – Website deployment
+- PyCharm – Development environment
+
+## System Features
+
+- Interactive dashboard
+- Recipe management
+- Food category management
+- Ingredient management
+- Create, Read, Update, and Delete (CRUD) operations
+- Search and filtering
+- Data validation
+- Delete confirmation
+- Connected Firestore collections
+- Responsive and user-friendly interface
+
+## Database Structure
+
+The system uses three interconnected Firebase Cloud Firestore collections.
+
+### 1. Categories
+
+- Category ID
+- Category Name
+- Description
+- Created At
+- Updated At
+
+### 2. Recipes
+
+- Recipe ID
+- Recipe Name
+- Category ID
+- Description
+- Preparation Time
+- Cooking Time
+- Servings
+- Difficulty
+- Instructions
+- Image URL (Optional)
+- Created At
+- Updated At
+
+### 3. Ingredients
+
+- Ingredient ID
+- Recipe ID
+- Ingredient Name
+- Quantity
+- Unit
+- Created At
+- Updated At
+
+Document IDs establish relationships between categories, recipes, and ingredients.
+
+## Local Installation and Setup
+
+### Step 1: Open the Project
+
+Open the FlavorBook project folder in PyCharm. Use Python 3.10 or higher.
+
+### Step 2: Configure Firebase
+
+1. Create a Firebase project.
+2. Enable Cloud Firestore.
+3. Publish the included firestore.rules.
+4. Open Project Settings.
+5. Select Service Accounts.
+6. Generate a new private key.
+7. Save the file as ServiceAccountKey.json inside the project folder.
+
+### Step 3: Install Dependencies
+
+Run the following commands in the PyCharm terminal:
 
 ```powershell
 py -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 Copy-Item .env.example .env
+```
+
+### Step 4: Configure Environment Variables
+
+Create or update the .env file:
+
+```env
+GOOGLE_APPLICATION_CREDENTIALS=ServiceAccountKey.json
+FLASK_DEBUG=false
+PORT=5000
+```
+
+### Step 5: Run the Application
+
+```powershell
 .\.venv\Scripts\python.exe app.py
 ```
-Open http://127.0.0.1:5000 and check http://127.0.0.1:5000/api/health for database connectivity.
 
-## Usage and verification
-Create a category first, then a recipe selecting that category, then an ingredient selecting the recipe. Collections are created on first save. View, search, edit and delete records from each module. Delete ingredients before their recipe and recipes before their category. Check the Firestore console after each operation. The API supports GET/POST /api/{collection} and GET/PUT/DELETE /api/{collection}/{id}; search uses ?q=.
+Local website:
 
-Collections: categories (name, description), recipes (name, category ID, description, prep/cook minutes, servings, difficulty, instructions, optional image URL), ingredients (recipe ID, name, quantity, unit). All include creation and update timestamps. Document IDs link the collections.
+http://127.0.0.1:5000/
 
-## Submission
-Create a private GitHub repository, invite kidlat14, push source and README without credentials or .env. Submit by December 6, 2026 for full timeliness points. Live Firebase testing requires your own credentials.
+Firestore connection test:
+
+http://127.0.0.1:5000/api/health
+
+## Vercel Deployment
+
+FlavorBook uses Vercel for online deployment.
+
+Configure the following environment variables in the Vercel project settings:
+
+| Environment Variable | Value |
+|---|---|
+| FIREBASE_SERVICE
